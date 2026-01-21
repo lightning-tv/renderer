@@ -17,7 +17,11 @@
  * limitations under the License.
  */
 
-import { assertTruthy, setPremultiplyMode } from '../utils.js';
+import {
+  assertTruthy,
+  isProductionEnvironment,
+  setPremultiplyMode,
+} from '../utils.js';
 import { AnimationManager } from './animations/AnimationManager.js';
 import {
   UpdateType,
@@ -462,7 +466,6 @@ export class Stage {
    */
   drawFrame() {
     const { renderer, renderRequested, root } = this;
-    const txMemManager = this.txMemManager;
 
     // Update tree if needed
     if (root.updateType !== 0) {
@@ -494,8 +497,10 @@ export class Stage {
     // Perform render pass
     renderer.render();
 
-    this.calculateFps();
-    this.calculateQuads();
+    if (isProductionEnvironment === false) {
+      this.calculateFps();
+      this.calculateQuads();
+    }
 
     // Reset renderRequested flag if it was set
     if (renderRequested === true) {
