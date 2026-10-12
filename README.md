@@ -1,3 +1,9 @@
+# This fork has moved: https://github.com/solid-tv/renderer
+
+`@lightningtv/renderer` is now published as [`@solidtv/renderer`](https://www.npmjs.com/package/@solidtv/renderer) and developed at [solid-tv/renderer](https://github.com/solid-tv/renderer). To move a SolidTV app over, follow the [migration guide](https://solid-tv.github.io/solid/#/migrate). For the official Lightning 3 renderer, see [lightning-js/renderer](https://github.com/lightning-js/renderer).
+
+---
+
 # Lightning 3 Renderer
 
 A powerful 2D scene renderer designed for rendering highly performant user
